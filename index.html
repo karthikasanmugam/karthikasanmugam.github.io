@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karthika Shanmugam - Professional Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --gray: #95a5a6;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .navbar {
+            background-color: var(--primary) !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: white !important;
+            font-size: 1.5rem;
+        }
+        
+        .nav-link {
+            color: white !important;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--secondary) !important;
+            transform: translateY(-2px);
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            position: relative;
+            margin-bottom: 40px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--secondary);
+            border-radius: 2px;
+        }
+        
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .card-header {
+            background-color: var(--primary);
+            color: white;
+            font-weight: 600;
+            padding: 20px 30px;
+            border-bottom: none;
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+        
+        .btn-outline-primary {
+            border-color: var(--secondary);
+            color: var(--secondary);
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--secondary);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--secondary);
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .icon-box:hover {
+            background-color: var(--primary);
+            transform: scale(1.1);
+        }
+        
+        .certificate-card, .internship-card, .project-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .certificate-card:hover, .internship-card:hover, .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .certificate-img, .internship-img, .project-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin: 0 10px;
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            transform: translateY(-5px);
+        }
+        
+        .linkedin {
+            background-color: #0077B5;
+        }
+        
+        .github {
+            background-color: #333;
+        }
+        
+        .email {
+            background-color: #D44638;
+        }
+        
+        .footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer a:hover {
+            color: white;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--secondary);
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 4px;
+            top: 20px;
+            width: 2px;
+            height: calc(100% + 20px);
+            background-color: var(--gray);
+        }
+        
+        .timeline-item:last-child::after {
+            display: none;
+        }
+        
+        .progress-bar {
+            height: 10px;
+            border-radius: 5px;
+        }
+        
+        .skill-item {
+            margin-bottom: 15px;
+        }
+        
+        .skill-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .counter {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 5px;
+        }
+        
+        .counter-label {
+            font-size: 1rem;
+            color: var(--gray);
+        }
+        
+        .project-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .contact-form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .project-frame {
+            position: relative;
+            border: 2px solid var(--secondary);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        
+        .project-frame img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .project-frame-title {
+            position: absolute;
+            top: -30px;
+            left: 10px;
+            background-color: var(--secondary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 5px;
+            font-weight: 600;
+            z-index: 2;
+        }
+        
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .navbar-brand {
+                font-size: 1.2rem;
+            }
+            
+            .certificate-img, .internship-img, .project-img {
+                height: 180px;
+            }
+            
+            .project-image {
+                height: 200px;
+            }
+            
+            .project-frame img {
+                height: 200px;
+            }
+            
+            .project-frame-title {
+                top: -25px;
+                font-size: 0.9rem;
+            }
+            
+            .btn-sm {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Karthika S</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#internships">Internships</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#certificates">Certificates</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="bg-light py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold mb-3">Karthika Shanmugam</h1>
+                    <p class="lead mb-4">Computer Science & Business Systems Student | Robotics Enthusiast | IoT Developer</p>
+                    <p class="mb-4">Motivated and detail-oriented B.Tech student with a strong foundation in Python, IoT, and Robotics. Seeking to apply technical and problem-solving skills in challenging software development, robotics, or IoT-based roles.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                        <a href="#projects" class="btn btn-outline-primary">View Projects</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-5 mt-lg-0">
+                    <div class="card">
+                        <img src="https://placehold.co/600x400/2c3e50/ffffff?text=Karthika+Shanmugam" class="card-img-top" alt="Profile">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Karthika Shanmugam</h5>
+                            <p class="card-text">B.Tech Computer Science & Business Systems</p>
+                            <div class="social-icons">
+                                <a href="https://www.linkedin.com/in/karthika-s-9bb830249" target="_blank" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=karthika7530@gmail.com" target="_blank" class="email"><i class="fas fa-envelope"></i></a>
+                                <a href="https://github.com/karthikasanmugam" target="_blank" class="github"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title text-center">About Me</h2>
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-header text-center">Personal Information</div>
+                        <div class="card-body">
+                            <p><strong>Name:</strong> Karthika Shanmugam</p>
+                            <p><strong>Date of Birth:</strong> 21-Nov-2003</p>
+                            <p><strong>Location:</strong> Tiruppur, Tamil Nadu</p>
+                            <p><strong>Phone:</strong> +91 93449 47530</p>
+                            <p><strong>Email:</strong> karthika7530@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-header text-center">Education</div>
+                        <div class="card-body">
+                            <div class="timeline-item">
+                                <h6>Post Graduate Diploma in Robotics (ROS)</h6>
+                                <p>I Hub School of Learning, 2025 (In Progress)</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h6>B.Tech in Computer Science & Business Systems</h6>
+                                <p>Nehru Institute of Engineering and Technology, Coimbatore (2021-2025)</p>
+                                <p>CGPA: 8.5</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h6>HSC</h6>
+                                <p>Bharathi Vidhyalaya Matric. Hr. Sec. School, Mulanur (2021) - 89.4%</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h6>SSLC</h6>
+                                <p>Bharathi Vidhyalaya Matric. Hr. Sec. School, Mulanur (2019) - 89.4%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-header text-center">Achievements</div>
+                        <div class="card-body">
+                            <ul>
+                                <li>Rank Holder (2021–2022) – First Rank</li>
+                                <li>IIT Bombay FOSSEE Mapathon – Notable Participant, 2023</li>
+                                <li>Wipro TalentNext Java Full Stack Developer – Certified, 2023</li>
+                                <li>NGI Ideathon Participant – Feb 2024</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">Technical Skills</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-header">Core Skills</div>
+                        <div class="card-body">
+                            <div class="skill-item">
+                                <div class="skill-name">Robotics</div>
+                                <div class="progress">
+                                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">Machine Learning</div>
+                                <div class="progress">
+                                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">Internet of Things</div>
+                                <div class="progress">
+                                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">Web Designing</div>
+                                <div class="progress">
+                                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">OpenCV</div>
+                                <div class="progress">
+                                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">MongoDB</div>
+                                <div class="progress">
+                                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-header">Programming & Tools</div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-6 mb-3">
+                                    <div class="badge bg-primary">Python</div>
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <div class="badge bg-primary">C++</div>
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <div class="badge bg-primary">Arduino C</div>
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <div class="badge bg-primary">MicroPython</div>
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <div class="badge bg-primary">ROS 1 & 2</div>
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <div class="badge bg-primary">URDF, TF, RViz2</div>
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <div class="badge bg-primary">Gazebo, Isaac Sim</div>
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <div class="badge bg-primary">ESP32, Arduino</div>
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <div class="badge bg-primary">Raspberry Pi, Pico</div>
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <div class="badge bg-primary">Fusion 360</div>
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <div class="badge bg-primary">VS Code, Thonny</div>
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <div class="badge bg-primary">Jupyter Notebook</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title text-center">Projects</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="project-card">
+                        <div class="project-frame">
+                            <div class="project-frame-title">Bipedal Robot Using ROS 2, URDF, and Rviz</div>
+                            <img src="https://placehold.co/600x250/2c3e50/ffffff?text=Bipedal+Robot+Project" class="img-fluid" alt="Bipedal Robot Project">
+                        </div>
+                        <div class="card-body">
+                            <p>Designed a 10-DOF robot model using Fusion 360 and exported to URDF. Simulated walking and visualized data in RViz.</p>
+                            <div class="d-flex gap-2 flex-wrap">
+                                <span class="badge bg-secondary">ROS 2</span>
+                                <span class="badge bg-secondary">URDF</span>
+                                <span class="badge bg-secondary">RViz</span>
+                                <span class="badge bg-secondary">Fusion 360</span>
+                            </div>
+                            <div class="mt-3">
+                                <a href="https://drive.google.com/file/d/1eqbr6Fo9g9Lq9V1kMfKpIx2fvUuVn1lM/view?usp=drivesdk" target="_blank" class="btn btn-sm btn-outline-primary">View Image</a>
+                                <a href="https://drive.google.com/file/d/1eroh1c1-iQDDh3L84kc4E2kGNFBvmT5N/view?usp=drivesdk" target="_blank" class="btn btn-sm btn-outline-primary">View Video</a>
+                                <a href="https://drive.google.com/file/d/1wT-spBCkLR6xlrrgBkm8wojtZglaapcP/view?usp=drivesdk" target="_blank" class="btn btn-sm btn-outline-primary">View Video</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="project-card">
+                        <div class="project-frame">
+                            <div class="project-frame-title">Data Acquisition & Visualization System using Python</div>
+                            <img src="https://placehold.co/600x250/3498db/ffffff?text=Data+Acquisition+Project" class="img-fluid" alt="Data Acquisition Project">
+                        </div>
+                        <div class="card-body">
+                            <p>Developed a real-time data acquisition system integrating ESP32 (I2C communication) and Arduino UNO as a slave. Displayed analog sensor output on OLED; simultaneously visualized both analog and digital data on a Python GUI. Data was logged in CSV format and stored in MongoDB for persistent cloud-based monitoring.</p>
+                            <div class="d-flex gap-2 flex-wrap">
+                                <span class="badge bg-secondary">Python</span>
+                                <span class="badge bg-secondary">ESP32</span>
+                                <span class="badge bg-secondary">Arduino</span>
+                                <span class="badge bg-secondary">MongoDB</span>
+                            </div>
+                            <div class="mt-3">
+                                <a href="https://drive.google.com/file/d/1WgmXEWTlbnBsKZ3y5-vX3fRIFcBx_RMP/view?usp=drivesdk" target="_blank" class="btn btn-sm btn-outline-primary">View Image</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="project-card">
+                        <div class="project-frame">
+                            <div class="project-frame-title">Gesture-Based Control System Using MediaPipe and OpenCV</div>
+                            <img src="https://placehold.co/600x250/2ecc71/ffffff?text=Gesture+Control+Project" class="img-fluid" alt="Gesture Control Project">
+                        </div>
+                        <div class="card-body">
+                            <p>Developed a hand gesture control interface using MediaPipe and OpenCV. Interfaced with servo motors via microcontroller for real-time actuation.</p>
+                            <div class="d-flex gap-2 flex-wrap">
+                                <span class="badge bg-secondary">MediaPipe</span>
+                                <span class="badge bg-secondary">OpenCV</span>
+                                <span class="badge bg-secondary">Python</span>
+                                <span class="badge bg-secondary">Servo Motors</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="project-card">
+                        <div class="project-frame">
+                            <div class="project-frame-title">Crop Plantation Survey in Regional Area</div>
+                            <img src="https://placehold.co/600x250/9b59b6/ffffff?text=Crop+Survey+Project" class="img-fluid" alt="Crop Survey Project">
+                        </div>
+                        <div class="card-body">
+                            <p>Mapped geographical crop plantation areas in Coimbatore using open-source tools like QGIS. Contributed to data collection and visualization for agricultural insights. Selected under the "3rd Category" in IIT Bombay FOSSEE Mapathon 2023.</p>
+                            <div class="d-flex gap-2 flex-wrap">
+                                <span class="badge bg-secondary">QGIS</span>
+                                <span class="badge bg-secondary">GIS</span>
+                                <span class="badge bg-secondary">IIT Bombay</span>
+                                <span class="badge bg-secondary">Mapathon</span>
+                            </div>
+                            <div class="mt-3">
+                                <a href="https://drive.google.com/file/d/1RKNkwByiFsXxG9IdjqjNichTiLfmVqww/view?usp=drivesdk" target="_blank" class="btn btn-sm btn-outline-primary">View Image</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Internships Section -->
+    <section id="internships" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">Internships</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="internship-card">
+                        <img src="https://placehold.co/600x200/3498db/ffffff?text=IoT+Intern+-+Techvolt" class="internship-img" alt="IoT Intern">
+                        <div class="card-body">
+                            <h5 class="card-title">IoT Intern - Techvolt Software Pvt. Ltd., Coimbatore</h5>
+                            <p><strong>Duration:</strong> July 2023</p>
+                            <p>Developed IoT-based Obstacle avoidance robot during internship at Techvolt Software Pvt. Ltd.</p>
+                            <a href="https://drive.google.com/file/d/19hLMbGwXG_scFc8c00bfcWsZYFD8pesi/view?usp=drivesdk" target="_blank" class="btn btn-sm btn-outline-primary">View Certificate</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="internship-card">
+                        <img src="https://placehold.co/600x200/2ecc71/ffffff?text=Web+Designing+Intern+-+Emglitz" class="internship-img" alt="Web Designing Intern">
+                        <div class="card-body">
+                            <h5 class="card-title">Web Designing Intern - Emglitz Technologies, Coimbatore</h5>
+                            <p><strong>Duration:</strong> July 2023</p>
+                            <p>Built responsive pages using HTML, CSS and gained hands-on experience in layout design.</p>
+                            <a href="https://drive.google.com/file/d/19hLMbGwXG_scFc8c00bfcWsZYFD8pesi/view?usp=drivesdk" target="_blank" class="btn btn-sm btn-outline-primary">View Certificate</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="section">
+        <div class="container">
+            <h2 class="section-title text-center">Certifications & Achievements</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="certificate-card">
+                        <img src="https://placehold.co/600x400/e74c3c/ffffff?text=IIT+Bombay+FOSSEE+Mapathon+Certificate" class="certificate-img" alt="IIT Bombay Certificate">
+                        <div class="card-body">
+                            <h5 class="card-title">IIT Bombay FOSSEE Mapathon 2023</h5>
+                            <p class="card-text">Notable Participant in the IIT Bombay FOSSEE Mapathon 2023, an initiative of the FOSSEE Project, Indian Institute of Technology Bombay.</p>
+                            <a href="https://drive.google.com/file/d/11YqcsksaMDZhWjLZ3oy1_bNA3JGkXogZ/view?usp=drivesdk" target="_blank" class="btn btn-sm btn-outline-primary">View Certificate</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="certificate-card">
+                        <img src="https://placehold.co/600x400/3498db/ffffff?text=First+Rank+Certificate" class="certificate-img" alt="First Rank Certificate">
+                        <div class="card-body">
+                            <h5 class="card-title">First Rank Certificate</h5>
+                            <p class="card-text">Awarded First Rank in University Examination for Computer Science and Business Systems department during academic year 2021-2022.</p>
+                            <a href="https://drive.google.com/file/d/1FLXqIZx8o6XwfOjZS_r-vkSnAeX4JByA/view?usp=drivesdk" target="_blank" class="btn btn-sm btn-outline-primary">View Certificate</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="certificate-card">
+                        <img src="https://placehold.co/600x400/2ecc71/ffffff?text=NGI+Ideathon+Certificate" class="certificate-img" alt="NGI Ideathon Certificate">
+                        <div class="card-body">
+                            <h5 class="card-title">NGI Ideathon 2024</h5>
+                            <p class="card-text">Participated in NGI Ideathon 2024 held at Nehru Group of Institutions Technology Business Incubator on 15th & 16th Feb 2024.</p>
+                            <a href="https://drive.google.com/file/d/1FNUePGejl03ST0R_WIoOa-_p9Tgz36mB/view?usp=drivesdk" target="_blank" class="btn btn-sm btn-outline-primary">View Certificate</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="certificate-card">
+                        <img src="https://placehold.co/600x400/9b59b6/ffffff?text=IoT+and+Applications+Certificate" class="certificate-img" alt="IoT Certificate">
+                        <div class="card-body">
+                            <h5 class="card-title">IoT and Applications Certification</h5>
+                            <p class="card-text">Successfully completed Technical program on Internet of Things from Techvolt Software Pvt. Ltd., Coimbatore.</p>
+                            <a href="https://drive.google.com/file/d/1E1pHd8T3PxCsl3KGkuUwDe9FJjCiEmke/view?usp=drivesdk" target="_blank" class="btn btn-sm btn-outline-primary">View Certificate</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">Get In Touch</h2>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="contact-form">
+                        <h4 class="mb-4">Send Me a Message</h4>
+                        <form id="contactForm">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="subject" class="form-label">Subject</label>
+                                <input type="text" class="form-control" id="subject" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea class="form-control" id="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="card">
+                        <div class="card-header">Connect With Me</div>
+                        <div class="card-body text-center">
+                            <div class="social-icons mb-4">
+                                <a href="https://www.linkedin.com/in/karthika-s-9bb830249" target="_blank" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=karthika7530@gmail.com" target="_blank" class="email"><i class="fas fa-envelope"></i></a>
+                                <a href="https://github.com/karthikasanmugam" target="_blank" class="github"><i class="fab fa-github"></i></a>
+                            </div>
+                            <h5>Contact Information</h5>
+                            <p><i class="fas fa-phone me-2"></i> +91 93449 47530</p>
+                            <p><i class="fas fa-envelope me-2"></i> karthika7530@gmail.com</p>
+                            <p><i class="fas fa-map-marker-alt me-2"></i> Tiruppur, Tamil Nadu</p>
+                            <p><i class="fab fa-linkedin me-2"></i> linkedin.com/in/karthika-s-9bb830249</p>
+                            <p><i class="fab fa-github me-2"></i> github.com/karthikasanmugam</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="mb-2">© 2025 Karthika Shanmugam. All rights reserved.</p>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/karthika-s-9bb830249" target="_blank" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=karthika7530@gmail.com" target="_blank" class="email"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/karthikasanmugam" target="_blank" class="github"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Form submission handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
